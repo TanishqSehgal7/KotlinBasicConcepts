@@ -2,6 +2,8 @@ package ClassesInKotlinLanguage
 
 abstract class Shape(var nameOfShape:String) {
 
+    constructor(name:String, vararg dimensions: Double) : this(name)
+
     init {
         println("I'm the superclass:'Shape'")
     }
@@ -14,7 +16,15 @@ abstract class Shape(var nameOfShape:String) {
     }
 }
 
+
 // a class can be inheritted only when it is an open class
+// every object in koltin inherits form the "Any" object, basically
+
+/* everything in koltin inherits form the class Any and, it has
+3 methods equals(other:Any?): Boolean, hashCode():Int and
+toString():String
+ */
+
 /*
 Visibility Modifiers
 1. Private - only accessible inside a particular class
@@ -29,7 +39,7 @@ subclasses that inherit that particular class
 Abstract classes and functions
 => By specifying classes as abstract, we specify that the only
 use of the abstract class is that, that other classes should
-only inherit from the abstract class
+only inherit from the abstract class and, it's instance is not to be made
 
 => We cannot create and instance of an abstract class
 => If we have specified the class as abstract, then we do not need
