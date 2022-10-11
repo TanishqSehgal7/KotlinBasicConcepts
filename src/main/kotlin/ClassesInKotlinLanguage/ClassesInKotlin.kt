@@ -3,6 +3,7 @@ import ClassesInKotlinLanguage.Rectangle
 import ClassesInKotlinLanguage.Shape
 import ClassesInKotlinLanguage.Triangle
 import org.w3c.dom.css.Rect
+import java.lang.NumberFormatException
 
 // CLASSES IN KOTLIN
 
@@ -140,6 +141,28 @@ fun main() {
 
    if (trapezium.isRectangle()) println("This is a rectangle")
    else println("This is a trapezium")
+
+
+/*
+Sometimes, our code can have errors on runtime, to hnadle that
+situation we have exceptions in kotlin
+
+We use the try{} and catch() {} block to handle exceptions
+*/
+
+   val newInput = try {
+      readLine()?.toInt()
+   } catch (e:NumberFormatException) {
+      // NumberFormatException inherits from the Class Exception
+      println("Wrong Type of Input Entered!!")
+      0 // assigning value 0  to input when some wrong input is entered
+   } finally { //gets executed after one of the try and catch
+      // blocks get executed everytime
+      println("This is from the finally block")
+   }
+
+   println("You entered: $newInput")
+
 }
 
 // function overloading - using the same name of function but with different type or
