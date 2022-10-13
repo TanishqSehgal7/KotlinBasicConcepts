@@ -1,5 +1,6 @@
 package ClassesInKotlinLanguage
 
+import NegativeCircleRadiusException
 import kotlin.random.Random
 
 class Circle(val radius:Double) : Shape("Circle") {
@@ -23,7 +24,11 @@ class Circle(val radius:Double) : Shape("Circle") {
      }
 
     init {
-        println("\n$nameOfShape Created with radius $radius")
+       if (radius<0.0)
+           throw NegativeCircleRadiusException()
+       else {
+           println("\n$nameOfShape Created with radius $radius")
+       }
     }
 
 //    fun areaOfCircle() = radius*radius*pi

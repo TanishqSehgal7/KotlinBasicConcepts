@@ -2,8 +2,8 @@ import ClassesInKotlinLanguage.Circle
 import ClassesInKotlinLanguage.Rectangle
 import ClassesInKotlinLanguage.Shape
 import ClassesInKotlinLanguage.Triangle
-import org.w3c.dom.css.Rect
 import java.lang.NumberFormatException
+import kotlin.Exception
 
 // CLASSES IN KOTLIN
 
@@ -163,6 +163,19 @@ We use the try{} and catch() {} block to handle exceptions
 
    println("You entered: $newInput")
 
+//   print("Division: ${divide2Nos(5.0,0.0)}")
+
+   val division = try {
+      divide2Nos(5.0,0.0)
+   } catch (e:DivisionByZeroException) {
+      0.0
+   }
+
+   println("Result of division is: $division")
+
+   val negativeRadiusCircle = Circle(-2.0)
+   println("Ares is: ${negativeRadiusCircle.area()}")
+   println("Perimeter is: ${negativeRadiusCircle.perimeter()}")
 }
 
 // function overloading - using the same name of function but with different type or
@@ -179,3 +192,13 @@ fun maxAreaShape(shape1:Shape, shape2:Shape, shape3:Shape) : Double {
   return Math.max(maxAreaShape1Shape2, shape3Area)
 }
 
+// Creating our own exceptions
+
+class DivisionByZeroException : Exception("Division by zero is prohibitted!")
+class NegativeCircleRadiusException : Exception("A Circle cannot have negative radius!")
+fun divide2Nos(a:Double, b:Double) : Double {
+   if (b == 0.0)
+      throw DivisionByZeroException()
+
+   return a / b
+}
