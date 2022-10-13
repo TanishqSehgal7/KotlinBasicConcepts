@@ -1,7 +1,4 @@
-import ClassesInKotlinLanguage.Circle
-import ClassesInKotlinLanguage.Rectangle
-import ClassesInKotlinLanguage.Shape
-import ClassesInKotlinLanguage.Triangle
+import ClassesInKotlinLanguage.*
 
 /* LAMBDA FUNCTIONS IN KOTLIN
  lambda functions are used to pass functions as parameters to other
@@ -60,6 +57,21 @@ fun main(args:Array<String>) {
         print("$num ")
     }
 
+/*
+GENERIC CLASSES -> Kotlin standard library has a class called
+Triple<A,B,C>
+ */
+
+    var triple = Triple<Int, String, Boolean>(3,"Hello", false)
+    println("First: ${triple.first}")
+    println("Second: ${triple.second}")
+    println("Third: ${triple.third}")
+
+    var myCustomTrippleClass = MyCustomTrippleClass<Int, String, Boolean>(11, "Generic In Kotlin", true)
+    myCustomTrippleClass.printTypes()
+    println("First : ${myCustomTrippleClass.first}")
+    println("Second : ${myCustomTrippleClass.second}")
+    println("Third : ${myCustomTrippleClass.third}")
 }
 // creating our own lambda functions
 
@@ -98,3 +110,7 @@ fun <T> List<T>.myGenericCustomFiler(genericCustomFiler: (T) -> (Boolean)) : Lis
     }
     return resultList
 }
+
+//fun <T : Number> List<T>.mygenericFilerWithSelectedAllowedTypes(myGenericFilter: (T) -> (Boolean)) : List<T>{
+//
+//}
